@@ -1,0 +1,17 @@
+{
+  "name": "wavstation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/main.css -o ./static/css/tailwind.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/main.css -o ./static/css/tailwind.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "tailwind": "^4.0.0"
+  }
+}

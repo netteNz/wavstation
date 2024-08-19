@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pre-Save Song</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/tailwind.css') }}" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div class="text-center hero-content">
+      <h1 class="text-4xl font-bold mb-6">New Song Coming Soon</h1>
+      <p class="text-lg mb-4">Pre-Save it now to be the first to hear it when it drops!</p>
+
+      <iframe class="spotify-embed" src="https://open.spotify.com/embed/artist/1TpW0FLoBboVFEH42ynib2?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+      <div class="flex justify-center mt-4">
+        <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-200">Pre-Save on Spotify</a>
+      </div>
+    </div>
+  </body>
+</html>
