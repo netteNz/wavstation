@@ -23,4 +23,3 @@ This is a minimalistic pre-save website built using Flask, designed to allow use
 - **templates/pre_save.html:** HTML template file for the pre-save page.
 - **static:** Directory containing static assets like CSS, JavaScript, and images.
 - **tailwind.config.js:** Configuration file for customizing Tailwind CSS.
-
