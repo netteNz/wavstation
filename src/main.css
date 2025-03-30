@@ -1,5 +1,6 @@
 /* src/main.css */
-
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 /* Tailwind's base styles, components, and utilities */
 @tailwind base;
 @tailwind components;
@@ -119,8 +120,43 @@ html {
     /* Ensure footer doesn't add any background */
 }
 
+/* Add logos section above footer */
+.logos-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 0;
+    margin-top: 20px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.logos-section img {
+    height: 40px;
+    max-width: 150px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logos-section img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 @media (max-width: 600px) {
     .hero-content iframe {
         height: 250px;
+    }
+    
+    .logos-section {
+        padding: 20px 0;
+        gap: 20px;
+    }
+    
+    .logos-section img {
+        height: 30px;
+        max-width: 100px;
     }
 }

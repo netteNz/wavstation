@@ -5,42 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pre-Save Song</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link href="{{ url_for('static', filename='css/tailwind.css') }}" rel="stylesheet" />
+    <style>
+      /* Override social icon size */
+      .social-links a i {
+        font-size: 2.5rem;  /* Make icons bigger */
+      }
+      
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Ensures minimum height is full viewport */
+      }
+      
+      .content-wrapper {
+        flex: 1; /* Takes up available space, pushing footer down */
+      }
+    </style>
   </head>
+
   <body class="bg-gray-900 text-white">
     <!-- Navigation Bar -->
     <nav class="bg-gray-800 fixed top-0 left-0 right-0 z-50">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-20 items-center justify-between">
-          <!-- Set height to match the navbar height -->
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div class="flex flex-shrink-0 items-center">
-              <img class="h-12 w-auto" src="{{ url_for('static', filename='images/logo.png') }}" alt="Your Company" style="width: 75px;" /> <!-- Adjusted logo height -->
-            </div>
-            <div class="hidden sm:ml-6 sm:block">
-              <div class="flex space-x-6">
-                <!-- Menu items -->
-                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
-                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
-              </div>
+              <img class="h-12 w-auto" src="{{ url_for('static', filename='images/logo.png') }}" alt="ChrisWav" style="width: 80px;" />
             </div>
           </div>
         </div>
       </div>
     </nav>
 
-    <!-- Hero Content -->
-    <div class="flex flex-col items-center justify-center min-h-screen pt-20">
-      <!-- Adjusted padding-top to match navbar height -->
-      <div class="text-center">
-        <h1 class="text-4xl font-bold mb-6">New Song Coming Soon</h1>
-        <p class="text-lg mb-4">Pre-Save it now to be the first to hear it when it drops!</p>
-        <iframe class="spotify-embed" src="https://open.spotify.com/embed/artist/1TpW0FLoBboVFEH42ynib2?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div class="flex justify-center mt-4">
-          <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-200">Pre-Save on Spotify</a>
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+      <!-- Hero Content -->
+      <div class="flex flex-col items-center justify-center min-h-screen pt-20" style="display: flex; flex-direction: column;">
+        <div class="text-center w-full" style="display: flex; flex-direction: column; align-items: center;">
+          <h1 class="text-4xl font-bold mb-6">Latest Release</h1>
+          <p class="text-lg mb-4">Pre-Save it now to be the first to hear it when it drops!</p>
+
+          <div class="flex flex-col items-center justify-center mt-4 w-full" style="display: flex; flex-direction: column;">
+            <!-- Iframe with increased bottom spacing -->
+            <iframe
+              class="rounded-lg" 
+              style="border: 0; width: 350px; height: 442px; margin: 0 auto; display: block; margin-bottom: 40px;"
+              src="https://bandcamp.com/EmbeddedPlayer/track=1848070888/size=large/bgcol=333333/linkcol=4ec5ec/tracklist=false/transparent=true/"
+              seamless
+            >
+              <a href="https://chriswav.bandcamp.com/track/we-used-to-be">we used to be by Chris Wave</a>
+            </iframe>
+            
+            <!-- Social Icons with larger size -->
+            <div class="social-links mt-8" style="width: 100%; display: flex; justify-content: center;">
+              <a href="https://twitter.com/yourprofile" target="_blank" style="margin: 0 15px;">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com/yourprofile" target="_blank" style="margin: 0 15px;">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://youtube.com/yourprofile" target="_blank" style="margin: 0 15px;">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center justify-center">
+          <img class="h-12 w-auto mb-4" src="{{ url_for('static', filename='images/logo.png') }}" alt="Your Company" style="width: 75px;" />
+          <p class="text-gray-300 text-sm text-center">© 2025 ChrisWav. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
