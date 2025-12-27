@@ -47,6 +47,102 @@
           <h1 class="text-4xl font-bold mb-6">Latest Release</h1>
           <p class="text-lg mb-4">Pre-Save it now to be the first to hear it when it drops!</p>
 
+          <div class="mt-6 w-full max-w-3xl">
+            <div class="rounded-3xl border border-gray-700 bg-gray-800/70 p-8 shadow-xl">
+              <div class="grid gap-8 lg:grid-cols-2">
+                <div class="text-left">
+                  <p class="text-sm uppercase tracking-[0.2em] text-gray-400">Pre-Save Access</p>
+                  <h2 class="mt-3 text-3xl font-semibold">Lock in your spot on launch day</h2>
+                  <p class="mt-4 text-sm text-gray-300">
+                    Choose your streaming platform and we will remind you when the track goes live. This is a
+                    front-end only experience—your details stay on this page.
+                  </p>
+
+                  <div class="mt-6 space-y-4 text-sm text-gray-200">
+                    <div class="flex items-start gap-3">
+                      <span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                        <i class="fas fa-bell"></i>
+                      </span>
+                      <span>Instant reminder when the release is available.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                        <i class="fas fa-music"></i>
+                      </span>
+                      <span>Save to your favorite platform in one tap.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                      <span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300">
+                        <i class="fas fa-star"></i>
+                      </span>
+                      <span>Be the first to listen and share the moment.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <form class="rounded-2xl bg-gray-900/70 p-6 text-left" id="pre-save-form">
+                  <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Pre-Save Form</p>
+                  <h3 class="mt-3 text-2xl font-semibold">Reserve your pre-save</h3>
+
+                  <label class="mt-6 block text-sm font-medium text-gray-200" for="pre-save-name">Name</label>
+                  <input
+                    class="mt-2 w-full rounded-xl border border-gray-700 bg-gray-900 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-cyan-500 focus:outline-none"
+                    id="pre-save-name"
+                    name="name"
+                    placeholder="Jamie Rivera"
+                    required
+                    type="text"
+                  />
+
+                  <label class="mt-4 block text-sm font-medium text-gray-200" for="pre-save-email">Email</label>
+                  <input
+                    class="mt-2 w-full rounded-xl border border-gray-700 bg-gray-900 px-4 py-3 text-sm text-white placeholder-gray-500 focus:border-cyan-500 focus:outline-none"
+                    id="pre-save-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    type="email"
+                  />
+
+                  <label class="mt-4 block text-sm font-medium text-gray-200" for="pre-save-platform">Preferred platform</label>
+                  <select
+                    class="mt-2 w-full rounded-xl border border-gray-700 bg-gray-900 px-4 py-3 text-sm text-white focus:border-cyan-500 focus:outline-none"
+                    id="pre-save-platform"
+                    name="platform"
+                    required
+                  >
+                    <option value="">Select a platform</option>
+                    <option>Spotify</option>
+                    <option>Apple Music</option>
+                    <option>Amazon Music</option>
+                    <option>YouTube Music</option>
+                  </select>
+
+                  <label class="mt-4 flex items-center gap-3 text-sm text-gray-300">
+                    <input class="h-4 w-4 rounded border-gray-600 bg-gray-900 text-cyan-400 focus:ring-cyan-400" type="checkbox" required />
+                    I agree to receive a launch day reminder only.
+                  </label>
+
+                  <button
+                    class="mt-6 w-full rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-gray-900 transition hover:bg-cyan-400"
+                    type="submit"
+                  >
+                    Pre-Save Now
+                  </button>
+
+                  <p class="mt-4 text-xs text-gray-400">
+                    No spam. You can update your preference when the release arrives.
+                  </p>
+
+                  <div class="mt-4 hidden rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-4 py-3 text-sm text-cyan-200" id="pre-save-success">
+                    <strong class="block text-white">You are in!</strong>
+                    We will remind you the moment the track drops.
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
           <div class="flex flex-col items-center justify-center mt-4 w-full" style="display: flex; flex-direction: column;">
             <!-- Iframe with increased bottom spacing -->
             <iframe
@@ -84,5 +180,22 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const preSaveForm = document.getElementById('pre-save-form');
+      const preSaveSuccess = document.getElementById('pre-save-success');
+
+      preSaveForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        preSaveSuccess.classList.remove('hidden');
+        preSaveSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        const submitButton = preSaveForm.querySelector('button[type="submit"]');
+        submitButton.textContent = 'Pre-Save Confirmed';
+        submitButton.setAttribute('disabled', 'disabled');
+        submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+      });
+    </script>
   </body>
 </html>
